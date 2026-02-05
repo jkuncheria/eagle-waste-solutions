@@ -1,0 +1,7 @@
+{
+  "name": "Eagle Waste Solutions",
+  "description": "Professional waste removal services in Los Angeles, California. Serving residential and commercial clients with junk removal, dumpster rental, and comprehensive waste management solutions. Integrated AI Assistant powered by Gemini.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
