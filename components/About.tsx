@@ -27,6 +27,11 @@ const About: React.FC = () => {
       icon: <Award className="w-8 h-8 text-blue-900" />,
       title: '100% Satisfaction Guarantee',
       description: 'We guarantee your satisfaction. If you\'re not completely happy with our work, we\'ll make it right—no questions asked.'
+    },
+    {
+      icon: <Clock className="w-8 h-8 text-blue-900" />,
+      title: 'Same-Day Service',
+      description: 'Need it gone today? We offer same-day removal for urgent jobs throughout Los Angeles County, San Fernando Valley, and Orange County.'
     }
   ];
 
@@ -52,7 +57,7 @@ const About: React.FC = () => {
           {/* Main About Content */}
           <div className="max-w-4xl mx-auto text-left mb-12">
             <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-              Eagle Waste Solutions LLC is a full-service waste removal company proudly serving Los Angeles County and Orange County. We specialize in construction debris removal, business office cleanouts, garage cleanouts, furniture hauling, appliance disposal, hot tub removal, and much more.
+              Eagle Waste Solutions LLC is a full-service waste removal company proudly serving Los Angeles County, San Fernando Valley, and Orange County. We specialize in construction debris removal, business office cleanouts, garage cleanouts, furniture hauling, appliance disposal, hot tub removal, and much more.
             </p>
             <p className="text-lg text-gray-700 mb-6 leading-relaxed">
               Whether you're a contractor needing construction debris hauled away, a business relocating offices, or a homeowner clearing out years of accumulated items, our experienced team handles it all. We arrive on time, work efficiently, and leave your space spotless.
@@ -105,7 +110,7 @@ const About: React.FC = () => {
                 <CheckCircle className="w-6 h-6 text-blue-900 mr-4 flex-shrink-0 mt-1" />
                 <div>
                   <h4 className="font-bold text-gray-900 mb-2">Same-Day Service Available</h4>
-                  <p className="text-gray-600">Need debris removed today? We offer same-day service for urgent jobs throughout Los Angeles County and Orange County.</p>
+                  <p className="text-gray-600">Need debris removed today? We offer same-day service for urgent jobs throughout Los Angeles County, San Fernando Valley, and Orange County.</p>
                 </div>
               </div>
               <div className="flex items-start bg-white rounded-xl p-6 shadow-sm">

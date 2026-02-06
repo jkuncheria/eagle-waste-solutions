@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Send, Mail, Phone, MapPin, ChevronDown, Clock, Facebook, Instagram, Twitter, Youtube, Calendar, Users } from 'lucide-react';
+import { Send, Mail, Phone, MapPin, ChevronDown, Facebook, Instagram, Users } from 'lucide-react';
 
 interface ContactProps {
   simplified?: boolean;
@@ -14,6 +14,9 @@ const Contact: React.FC<ContactProps> = ({ simplified = false }) => {
     message: ''
   });
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const inquiryOptions = [
@@ -54,19 +57,47 @@ const Contact: React.FC<ContactProps> = ({ simplified = false }) => {
 
   const selectedOption = inquiryOptions.find(opt => opt.value === formData.inquiryType) || inquiryOptions[0];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      inquiryType: 'general',
-      message: ''
-    });
-    alert('Thank you for your message! We\'ll get back to you soon.');
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('https://www.renolens.com/api/contact-form', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          clientId: 'RL-4WT8RNNJ',
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+          inquiryType: selectedOption.label,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit form');
+      }
+
+      setSubmitStatus('success');
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        inquiryType: 'general',
+        message: ''
+      });
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitStatus('error');
+      setErrorMessage('There was an error submitting your message. Please try again or call us directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -128,7 +159,7 @@ const Contact: React.FC<ContactProps> = ({ simplified = false }) => {
                   </div>
                   <div className="flex-1">
                     <h4 className="font-bold text-gray-900 mb-1 group-hover:text-blue-900 transition-colors">Service Area</h4>
-                    <p className="text-gray-700 font-semibold">Los Angeles County</p>
+                    <p className="text-gray-700 font-semibold">Los Angeles County, San Fernando Valley</p>
                     <p className="text-gray-700 font-semibold">& Orange County</p>
                     <p className="text-sm text-blue-900 mt-1 font-semibold group-hover:underline">
                       Contact Us →
@@ -254,44 +285,49 @@ const Contact: React.FC<ContactProps> = ({ simplified = false }) => {
                 ></textarea>
               </div>
 
+              {submitStatus === 'success' && (
+                <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-xl text-green-800 text-center">
+                  Thank you for your message! We'll get back to you soon.
+                </div>
+              )}
+
+              {submitStatus === 'error' && (
+                <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl text-red-800 text-center">
+                  {errorMessage}
+                </div>
+              )}
+
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-blue-900 to-blue-800 hover:from-blue-800 hover:to-blue-700 text-white font-bold py-4 px-8 rounded-xl transition-all transform hover:scale-[1.02] shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group"
+                disabled={isSubmitting}
+                className={`w-full bg-gradient-to-r from-blue-900 to-blue-800 hover:from-blue-800 hover:to-blue-700 text-white font-bold py-4 px-8 rounded-xl transition-all transform shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group ${
+                  isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:scale-[1.02]'
+                }`}
               >
-                Send Message
-                <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                {isSubmitting ? (
+                  <>
+                    <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    Send Message
+                    <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </>
+                )}
               </button>
             </form>
           </div>
 
         </div>
 
-        {/* Store Hours & Location Section - Only show on full Contact page */}
+        {/* Service Area Section - Only show on full Contact page */}
         {!simplified && (
           <>
-            <div className="mt-20 grid grid-cols-1 lg:grid-cols-2 gap-10">
-          <div className="bg-white rounded-2xl shadow-lg p-8 md:p-10 border border-gray-100">
-            <div className="flex items-center mb-6">
-              <div className="bg-blue-50 p-3 rounded-xl mr-4">
-                <Clock className="w-6 h-6 text-blue-900" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900">Store Hours</h3>
-            </div>
-            <div className="space-y-4">
-              <div className="bg-blue-50 rounded-lg p-3 mb-4">
-                <p className="font-semibold text-blue-900">Available</p>
-                <p className="text-gray-700">By Appointment</p>
-              </div>
-              <div className="flex justify-between items-center py-3 border-b border-gray-100">
-                <span className="font-semibold text-gray-900">Monday - Sunday</span>
-                <span className="text-gray-600">By Appointment</span>
-              </div>
-              <div className="pt-3 border-t border-gray-100">
-                <p className="text-xs text-gray-500 italic">We work around your schedule. Call for availability.</p>
-              </div>
-            </div>
-          </div>
-
+            <div className="mt-20 max-w-xl mx-auto">
           <div className="bg-white rounded-2xl shadow-lg p-8 md:p-10 border border-gray-100">
             <div className="flex items-center mb-6">
               <div className="bg-blue-50 p-3 rounded-xl mr-4">
@@ -302,12 +338,12 @@ const Contact: React.FC<ContactProps> = ({ simplified = false }) => {
             <div className="space-y-4">
               <div>
                 <p className="text-gray-600 mb-2">We Serve</p>
-                <p className="text-gray-900 font-semibold">Los Angeles County</p>
+                <p className="text-gray-900 font-semibold">Los Angeles County, San Fernando Valley</p>
                 <p className="text-gray-900 font-semibold">& Orange County</p>
               </div>
               <div className="pt-4 border-t border-gray-100">
                 <p className="text-gray-600 mb-4">
-                  We provide professional waste removal services throughout Los Angeles County and Orange County. Contact us to see if we service your area.
+                  We provide professional waste removal services throughout Los Angeles County, San Fernando Valley, and Orange County. Contact us to see if we service your area.
                 </p>
                 <a 
                   href="/contact" 
@@ -321,20 +357,7 @@ const Contact: React.FC<ContactProps> = ({ simplified = false }) => {
         </div>
 
             {/* Social Media & Additional Info */}
-            <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-gradient-to-br from-blue-900 to-blue-800 rounded-2xl p-8 text-white text-center">
-                <div className="bg-white bg-opacity-20 p-4 rounded-full inline-flex mb-4">
-                  <Calendar className="w-8 h-8" />
-                </div>
-                <h3 className="text-xl font-bold mb-3">Schedule a Consultation</h3>
-                <p className="text-blue-100 mb-4 text-sm">
-                  Book a free consultation to discuss your waste removal needs and get expert recommendations.
-                </p>
-                <button className="bg-white text-blue-900 hover:bg-gray-100 font-bold py-2 px-6 rounded-lg transition-all">
-                  Book Now
-                </button>
-              </div>
-
+            <div className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="bg-gradient-to-br from-blue-900 to-blue-800 rounded-2xl p-8 text-white text-center">
                 <div className="bg-white bg-opacity-20 p-4 rounded-full inline-flex mb-4">
                   <Users className="w-8 h-8" />
@@ -344,17 +367,14 @@ const Contact: React.FC<ContactProps> = ({ simplified = false }) => {
                   Follow us on social media for waste removal tips, special offers, and eco-friendly disposal information.
                 </p>
                 <div className="flex justify-center gap-3">
-                  <a href="#" className="bg-white bg-opacity-20 hover:bg-opacity-30 p-2 rounded-lg transition-all">
+                  <a href="https://www.facebook.com/profile.php?id=61581473744592#" target="_blank" rel="noopener noreferrer" className="bg-white bg-opacity-20 hover:bg-opacity-30 p-2 rounded-lg transition-all">
                     <Facebook className="w-5 h-5" />
                   </a>
-                  <a href="#" className="bg-white bg-opacity-20 hover:bg-opacity-30 p-2 rounded-lg transition-all">
+                  <a href="https://www.instagram.com/eaglewastesolutionsllc/" target="_blank" rel="noopener noreferrer" className="bg-white bg-opacity-20 hover:bg-opacity-30 p-2 rounded-lg transition-all">
                     <Instagram className="w-5 h-5" />
                   </a>
-                  <a href="#" className="bg-white bg-opacity-20 hover:bg-opacity-30 p-2 rounded-lg transition-all">
-                    <Twitter className="w-5 h-5" />
-                  </a>
-                  <a href="#" className="bg-white bg-opacity-20 hover:bg-opacity-30 p-2 rounded-lg transition-all">
-                    <Youtube className="w-5 h-5" />
+                  <a href="https://www.tiktok.com/@eaglewastesolutionsllc" target="_blank" rel="noopener noreferrer" className="bg-white bg-opacity-20 hover:bg-opacity-30 p-2 rounded-lg transition-all">
+                    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
                   </a>
                 </div>
               </div>

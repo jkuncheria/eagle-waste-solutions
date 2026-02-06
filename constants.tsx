@@ -35,7 +35,7 @@ export const CATEGORIES: Category[] = [
   { id: 'construction-debris-removal', name: 'Construction Debris Removal', image: '/eaglewaste/348s-2.jpg' },
   { id: 'business-office-cleanouts', name: 'Business Office Cleanouts', image: '/eaglewaste/disposalbin.jpg' },
   { id: 'garage-cleanouts', name: 'Garage Cleanouts', image: '/eaglewaste/348s-6.jpg' },
-  { id: 'hot-tub-removal', name: 'Hot Tub Removal', image: '/eaglewaste/348s-7.jpg' },
+  { id: 'hot-tub-removal', name: 'Hot Tub Removal', image: '/hottub.jpg' },
   { id: 'furniture-pickup-hauling', name: 'Furniture Pickup & Hauling', image: '/eaglewaste/furniture.jpg' },
   { id: 'appliance-disposal', name: 'Appliance Disposal', image: '/eaglewaste/appliance-disposal1.jpg' },
   { id: 'green-waste-disposal', name: 'Green Waste Disposal', image: '/eaglewaste/348s.jpg' },
@@ -47,7 +47,7 @@ export const CATEGORIES: Category[] = [
 export const DIFFERENCE_FEATURES: Feature[] = [
   {
     title: 'Same-Day Service',
-    description: 'Need it gone today? We offer same-day removal for urgent jobs throughout LA and Orange County.',
+    description: 'Need it gone today? We offer same-day removal for urgent jobs throughout LA, San Fernando Valley & Orange County.',
     icon: <Truck className="w-8 h-8 text-blue-900" />,
   },
   {

@@ -18,9 +18,10 @@ const Hero: React.FC = () => {
         muted
         playsInline
         className="absolute inset-0 w-full h-full object-cover"
-        style={{ objectPosition: 'center 0%' }}
+        style={{ objectPosition: 'center center' }}
       >
-        <source src="/hero-video.mp4" type="video/mp4" />
+        <source src="/newherovideo.mov" type="video/quicktime" />
+        <source src="/newherovideo.mov" type="video/mp4" />
         {/* Fallback for browsers that don't support video */}
         Your browser does not support the video tag.
       </video>
@@ -30,13 +31,13 @@ const Hero: React.FC = () => {
       
       {/* Content Overlay */}
       <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4 md:px-0 z-10">
-        <h1 className="text-4xl md:text-6xl font-black text-white mb-4 tracking-tight drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]">
+        <h1 className="text-4xl md:text-6xl font-black text-white mb-4 tracking-tight" style={{ textShadow: '3px 3px 6px rgba(0,0,0,1), 0 0 30px rgba(0,0,0,0.8), 0 0 60px rgba(0,0,0,0.5)' }}>
           LOS ANGELES'S PREMIER<br />
           <span className="inline-block font-black">
             WASTE REMOVAL COMPANY
           </span>
         </h1>
-        <p className="text-lg md:text-xl text-gray-100 mb-8 max-w-2xl drop-shadow-md font-light">
+        <p className="text-lg md:text-xl text-white mb-8 max-w-2xl font-semibold" style={{ textShadow: '2px 2px 6px rgba(0,0,0,1), 0 0 20px rgba(0,0,0,0.7)' }}>
           Professional waste removal services for residential and commercial properties. Fast, reliable, and eco-friendly disposal solutions.
         </p>
         

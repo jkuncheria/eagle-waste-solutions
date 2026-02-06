@@ -17,14 +17,14 @@ const Footer: React.FC = () => {
           <div>
             <Link to="/" onClick={scrollToTop} className="inline-block mb-4 group">
               <img 
-                src="/eagle-logo.png" 
+                src="/eaglelogoclear.PNG" 
                 alt="Eagle Waste Solutions" 
                 className="h-12 md:h-16 w-auto object-contain"
               />
             </Link>
             <p className="text-sm text-gray-600 mb-4">
-              Serving Los Angeles County<br />
-              & Orange County
+              Serving Los Angeles County,<br />
+              San Fernando Valley & Orange County
             </p>
             <div className="text-sm text-gray-600 mb-4 space-y-1">
               <p><a href="tel:13239260140" className="hover:text-blue-900">(323) 926-0140</a> Office</p>

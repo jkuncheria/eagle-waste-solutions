@@ -34,7 +34,7 @@ const AboutHome: React.FC = () => {
               We specialize in construction debris removal, business office cleanouts, garage cleanouts, furniture hauling, appliance disposal, and more. Our experienced team arrives on time, works quickly, and leaves your space clean—guaranteed.
             </p>
             <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-              With transparent pricing, same-day service availability, and eco-friendly disposal practices, Eagle Waste Solutions is the dependable choice for residential and commercial customers throughout Southern California.
+              With transparent pricing, same-day service availability, and eco-friendly disposal practices, Eagle Waste Solutions is the dependable choice for residential and commercial customers throughout Los Angeles County, San Fernando Valley, and Orange County.
             </p>
             
             <div className="bg-blue-50 rounded-xl p-6 mb-6">

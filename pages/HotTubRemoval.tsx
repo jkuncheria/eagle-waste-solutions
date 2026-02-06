@@ -70,7 +70,7 @@ const HotTubRemoval: React.FC = () => {
             <div className="relative">
               <div className="overflow-hidden h-[500px] md:h-[600px] rounded-2xl">
                 <img 
-                  src="/eaglewaste/348s-7.jpg" 
+                  src="/hottub.jpg" 
                   alt="Professional Hot Tub Removal Service" 
                   className="w-full h-full object-cover"
                   onError={(e) => {

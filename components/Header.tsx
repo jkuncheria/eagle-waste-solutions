@@ -48,12 +48,12 @@ const Header: React.FC = () => {
       </div>
 
       {/* Main Header Content */}
-      <div className="bg-white py-2 px-4 md:px-8 lg:px-16 shadow-sm">
+      <div className="bg-white py-4 md:py-2 px-4 md:px-8 lg:px-16 shadow-sm">
         <div className="flex flex-col md:grid md:grid-cols-3 items-center gap-4 relative">
           
           {/* Mobile Header Row */}
           <div className="w-full md:hidden flex items-center justify-between">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 w-20">
               <Link 
                 to="/contact"
                 onClick={scrollToTop}
@@ -68,15 +68,15 @@ const Header: React.FC = () => {
                 <Phone className="w-5 h-5" />
               </a>
             </div>
-            <Link to="/" onClick={scrollToTop} className="flex items-center">
+            <Link to="/" onClick={scrollToTop} className="flex items-center absolute left-1/2 transform -translate-x-1/2">
               <img 
-                src="/eagle-logo.png" 
+                src="/eaglelogoclear.PNG" 
                 alt="Eagle Waste Solutions" 
-                className="h-12 w-auto object-contain"
+                className="h-16 w-auto object-contain"
               />
             </Link>
             <button 
-              className="p-2 text-gray-600"
+              className="p-2 text-gray-600 w-20 flex justify-end"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X /> : <Menu />}
@@ -87,7 +87,7 @@ const Header: React.FC = () => {
           <div className="hidden md:flex md:relative md:left-0 md:transform-none md:col-start-2 md:col-end-3 md:justify-center">
             <Link to="/" onClick={scrollToTop} className="flex items-center justify-center group">
               <img 
-                src="/eagle-logo.png" 
+                src="/eaglelogoclear.PNG" 
                 alt="Eagle Waste Solutions" 
                 className="h-28 lg:h-36 w-auto object-contain"
               />
