@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { CheckCircle, Shield, Recycle, ArrowRight, Phone, Zap, HardHat } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const ConstructionDebrisRemoval: React.FC = () => {
   const benefits = [
@@ -39,7 +40,40 @@ const ConstructionDebrisRemoval: React.FC = () => {
     'General construction waste'
   ];
 
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Construction Debris Removal",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Eagle Waste Solutions LLC",
+      "telephone": "+1-323-926-0140",
+      "url": "https://eaglewastesolutionsllc.com"
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Los Angeles" },
+      { "@type": "Place", "name": "San Fernando Valley" },
+      { "@type": "Place", "name": "Orange County" }
+    ],
+    "description": "Professional construction debris removal services including drywall, lumber, concrete, roofing materials, and renovation waste. Same-day service available.",
+    "offers": {
+      "@type": "Offer",
+      "availability": "https://schema.org/InStock",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "priceCurrency": "USD"
+      }
+    }
+  };
+
   return (
+    <>
+      <SEO 
+        title="Construction Debris Removal | Los Angeles Demolition Waste Disposal | Eagle Waste Solutions"
+        description="Fast construction debris removal in Los Angeles, San Fernando Valley & Orange County. Drywall, lumber, concrete, roofing materials. Licensed & insured. Call (323) 926-0140."
+        canonicalPath="/construction-debris-removal"
+        schema={serviceSchema}
+      />
     <section className="py-24 bg-white px-4 md:px-16">
       <div className="max-w-7xl mx-auto">
         
@@ -203,6 +237,7 @@ const ConstructionDebrisRemoval: React.FC = () => {
 
       </div>
     </section>
+    </>
   );
 };
 

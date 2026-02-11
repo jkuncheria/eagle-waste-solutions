@@ -1,0 +1,11 @@
+# robots.txt for Eagle Waste Solutions
+# https://eaglewastesolutionsllc.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.eaglewastesolutionsllc.com/sitemap.xml
+
+# Disallow admin or private paths (if any)
+Disallow: /api/

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { CheckCircle, Shield, Recycle, ArrowRight, Phone, Zap, Sofa } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const FurniturePickupHauling: React.FC = () => {
   const benefits = [
@@ -40,6 +41,12 @@ const FurniturePickupHauling: React.FC = () => {
   ];
 
   return (
+    <>
+      <SEO 
+        title="Furniture Pickup & Hauling | Los Angeles Furniture Removal | Eagle Waste Solutions"
+        description="Professional furniture pickup and hauling in Los Angeles, San Fernando Valley & Orange County. Sofas, beds, tables, office furniture. Same-day service. Call (323) 926-0140."
+        canonicalPath="/furniture-pickup-hauling"
+      />
     <section className="py-24 bg-white px-4 md:px-16">
       <div className="max-w-7xl mx-auto">
         
@@ -203,6 +210,7 @@ const FurniturePickupHauling: React.FC = () => {
 
       </div>
     </section>
+    </>
   );
 };
 

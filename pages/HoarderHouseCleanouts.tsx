@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { CheckCircle, Shield, Recycle, ArrowRight, Phone, Zap, Heart } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const HoarderHouseCleanouts: React.FC = () => {
   const benefits = [
@@ -40,6 +41,12 @@ const HoarderHouseCleanouts: React.FC = () => {
   ];
 
   return (
+    <>
+      <SEO 
+        title="Hoarder House Cleanouts | Los Angeles Hoarding Cleanup | Eagle Waste Solutions"
+        description="Compassionate hoarder house cleanout services in Los Angeles, San Fernando Valley & Orange County. Discreet, professional, and thorough. Call (323) 926-0140."
+        canonicalPath="/hoarder-house-cleanouts"
+      />
     <section className="py-24 bg-white px-4 md:px-16">
       <div className="max-w-7xl mx-auto">
         <div className="mb-20">
@@ -99,6 +106,7 @@ const HoarderHouseCleanouts: React.FC = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

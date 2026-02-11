@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { CheckCircle, Shield, Recycle, ArrowRight, Phone, Zap, Package } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const CardboardDisposal: React.FC = () => {
   const benefits = [
@@ -40,6 +41,12 @@ const CardboardDisposal: React.FC = () => {
   ];
 
   return (
+    <>
+      <SEO 
+        title="Cardboard Disposal & Recycling | Los Angeles Cardboard Removal | Eagle Waste Solutions"
+        description="Professional cardboard disposal and recycling in Los Angeles, San Fernando Valley & Orange County. Bulk pickup, 100% recycled. Call (323) 926-0140."
+        canonicalPath="/cardboard-disposal"
+      />
     <section className="py-24 bg-white px-4 md:px-16">
       <div className="max-w-7xl mx-auto">
         <div className="mb-20">
@@ -99,6 +106,7 @@ const CardboardDisposal: React.FC = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { CheckCircle, Package, Shield, Recycle, ArrowRight, Phone, Trash2, Zap } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const JunkRemoval: React.FC = () => {
   const benefits = [
@@ -39,7 +40,27 @@ const JunkRemoval: React.FC = () => {
     'General household junk'
   ];
 
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Junk Removal",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Eagle Waste Solutions LLC",
+      "telephone": "+1-323-926-0140"
+    },
+    "areaServed": ["Los Angeles", "San Fernando Valley", "Orange County"],
+    "description": "Fast junk removal services for furniture, appliances, electronics, yard waste, and more. Same-day service available."
+  };
+
   return (
+    <>
+      <SEO 
+        title="Junk Removal Services | Los Angeles Hauling & Disposal | Eagle Waste Solutions"
+        description="Fast junk removal in Los Angeles, San Fernando Valley & Orange County. Furniture, appliances, electronics, yard waste. Same-day service. Call (323) 926-0140."
+        canonicalPath="/junk-removal"
+        schema={serviceSchema}
+      />
     <section className="py-24 bg-white px-4 md:px-16">
       <div className="max-w-7xl mx-auto">
         
@@ -204,6 +225,7 @@ const JunkRemoval: React.FC = () => {
 
       </div>
     </section>
+    </>
   );
 };
 

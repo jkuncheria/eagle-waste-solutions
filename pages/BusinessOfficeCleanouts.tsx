@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { CheckCircle, Shield, Recycle, ArrowRight, Phone, Zap, Building2 } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const BusinessOfficeCleanouts: React.FC = () => {
   const benefits = [
@@ -39,7 +40,27 @@ const BusinessOfficeCleanouts: React.FC = () => {
     'Complete office cleanouts'
   ];
 
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Office Cleanout",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Eagle Waste Solutions LLC",
+      "telephone": "+1-323-926-0140"
+    },
+    "areaServed": ["Los Angeles", "San Fernando Valley", "Orange County"],
+    "description": "Professional business and office cleanout services. We remove furniture, electronics, filing cabinets, and handle confidential document disposal."
+  };
+
   return (
+    <>
+      <SEO 
+        title="Business & Office Cleanouts | Los Angeles Commercial Junk Removal | Eagle Waste Solutions"
+        description="Professional office cleanout services in Los Angeles, San Fernando Valley & Orange County. Furniture, electronics, confidential documents. Call (323) 926-0140."
+        canonicalPath="/business-office-cleanouts"
+        schema={serviceSchema}
+      />
     <section className="py-24 bg-white px-4 md:px-16">
       <div className="max-w-7xl mx-auto">
         <div className="mb-20">
@@ -99,6 +120,7 @@ const BusinessOfficeCleanouts: React.FC = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

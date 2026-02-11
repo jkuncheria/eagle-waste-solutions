@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { CheckCircle, Shield, Recycle, ArrowRight, Phone, Zap, Bed } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const MattressDisposal: React.FC = () => {
   const benefits = [
@@ -40,6 +41,12 @@ const MattressDisposal: React.FC = () => {
   ];
 
   return (
+    <>
+      <SEO 
+        title="Mattress Disposal Services | Los Angeles Mattress Removal | Eagle Waste Solutions"
+        description="Professional mattress disposal in Los Angeles, San Fernando Valley & Orange County. All sizes, same-day pickup, eco-friendly recycling. Call (323) 926-0140."
+        canonicalPath="/mattress-disposal"
+      />
     <section className="py-24 bg-white px-4 md:px-16">
       <div className="max-w-7xl mx-auto">
         <div className="mb-20">
@@ -99,6 +106,7 @@ const MattressDisposal: React.FC = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

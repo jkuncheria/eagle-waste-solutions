@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { CheckCircle, Home, Shield, Recycle, ArrowRight, Phone, Trash2, Truck } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const ResidentialWasteRemoval: React.FC = () => {
   const benefits = [
@@ -38,6 +39,12 @@ const ResidentialWasteRemoval: React.FC = () => {
   ];
 
   return (
+    <>
+      <SEO 
+        title="Residential Waste Removal Services | Los Angeles & Orange County | Eagle Waste Solutions"
+        description="Professional residential waste removal in Los Angeles, San Fernando Valley & Orange County. Furniture, appliances, yard waste, electronics disposal. Same-day service available. Call (323) 926-0140."
+        canonicalPath="/residential-waste-removal"
+      />
     <section className="py-24 bg-white px-4 md:px-16">
       <div className="max-w-7xl mx-auto">
         
@@ -202,6 +209,7 @@ const ResidentialWasteRemoval: React.FC = () => {
 
       </div>
     </section>
+    </>
   );
 };
 

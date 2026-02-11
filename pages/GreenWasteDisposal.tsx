@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { CheckCircle, Shield, Recycle, ArrowRight, Phone, Zap, TreePine } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const GreenWasteDisposal: React.FC = () => {
   const benefits = [
@@ -40,6 +41,12 @@ const GreenWasteDisposal: React.FC = () => {
   ];
 
   return (
+    <>
+      <SEO 
+        title="Green Waste Disposal | Los Angeles Yard Waste Removal | Eagle Waste Solutions"
+        description="Professional green waste disposal in Los Angeles, San Fernando Valley & Orange County. Tree branches, leaves, grass, landscaping debris. 100% composted. Call (323) 926-0140."
+        canonicalPath="/green-waste-disposal"
+      />
     <section className="py-24 bg-white px-4 md:px-16">
       <div className="max-w-7xl mx-auto">
         <div className="mb-20">
@@ -99,6 +106,7 @@ const GreenWasteDisposal: React.FC = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

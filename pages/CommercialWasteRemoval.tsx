@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { CheckCircle, Building2, Shield, Recycle, ArrowRight, Phone, Trash2, Clock } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const CommercialWasteRemoval: React.FC = () => {
   const benefits = [
@@ -38,6 +39,12 @@ const CommercialWasteRemoval: React.FC = () => {
   ];
 
   return (
+    <>
+      <SEO 
+        title="Commercial Waste Removal Services | Los Angeles Business Waste Disposal | Eagle Waste Solutions"
+        description="Professional commercial waste removal for businesses in Los Angeles, San Fernando Valley & Orange County. Office cleanouts, retail, restaurant, warehouse disposal. Call (323) 926-0140."
+        canonicalPath="/commercial-waste-removal"
+      />
     <section className="py-24 bg-white px-4 md:px-16">
       <div className="max-w-7xl mx-auto">
         
@@ -202,6 +209,7 @@ const CommercialWasteRemoval: React.FC = () => {
 
       </div>
     </section>
+    </>
   );
 };
 

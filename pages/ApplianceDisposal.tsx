@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { CheckCircle, Shield, Recycle, ArrowRight, Phone, Zap, Refrigerator } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const ApplianceDisposal: React.FC = () => {
   const benefits = [
@@ -40,6 +41,12 @@ const ApplianceDisposal: React.FC = () => {
   ];
 
   return (
+    <>
+      <SEO 
+        title="Appliance Disposal Services | Los Angeles Appliance Removal | Eagle Waste Solutions"
+        description="Professional appliance disposal in Los Angeles, San Fernando Valley & Orange County. Refrigerators, washers, dryers, stoves. EPA compliant. Call (323) 926-0140."
+        canonicalPath="/appliance-disposal"
+      />
     <section className="py-24 bg-white px-4 md:px-16">
       <div className="max-w-7xl mx-auto">
         
@@ -203,6 +210,7 @@ const ApplianceDisposal: React.FC = () => {
 
       </div>
     </section>
+    </>
   );
 };
 

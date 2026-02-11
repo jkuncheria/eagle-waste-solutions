@@ -1,48 +1,49 @@
 import React, { useState } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const Gallery: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
   const images = [
-    { src: '/eaglewaste/348s.jpg', alt: 'Eagle Waste Solutions Work' },
-    { src: '/eaglewaste/348s-2.jpg', alt: 'Eagle Waste Solutions Work' },
-    { src: '/eaglewaste/348s-3.jpg', alt: 'Eagle Waste Solutions Work' },
-    { src: '/eaglewaste/348s-4.jpg', alt: 'Eagle Waste Solutions Work' },
-    { src: '/eaglewaste/348s-5.jpg', alt: 'Eagle Waste Solutions Work' },
-    { src: '/eaglewaste/348s-6.jpg', alt: 'Eagle Waste Solutions Work' },
-    { src: '/eaglewaste/348s-7.jpg', alt: 'Eagle Waste Solutions Work' },
-    { src: '/eaglewaste/348s-8.jpg', alt: 'Eagle Waste Solutions Work' },
-    { src: '/eaglewaste/348s-9.jpg', alt: 'Eagle Waste Solutions Work' },
-    { src: '/eaglewaste/348s-10.jpg', alt: 'Eagle Waste Solutions Work' },
-    { src: '/eaglewaste/348s-11.jpg', alt: 'Eagle Waste Solutions Work' },
-    { src: '/eaglewaste/348s-12.jpg', alt: 'Eagle Waste Solutions Work' },
-    { src: '/eaglewaste/348s-13.jpg', alt: 'Eagle Waste Solutions Work' },
-    { src: '/eaglewaste/348s-14.jpg', alt: 'Eagle Waste Solutions Work' },
-    { src: '/eaglewaste/348s-15.jpg', alt: 'Eagle Waste Solutions Work' },
-    { src: '/eaglewaste/348s-16.jpg', alt: 'Eagle Waste Solutions Work' },
-    { src: '/eaglewaste/348s-17.jpg', alt: 'Eagle Waste Solutions Work' },
-    { src: '/eaglewaste/348s-18.jpg', alt: 'Eagle Waste Solutions Work' },
-    { src: '/eaglewaste/348s-19.jpg', alt: 'Eagle Waste Solutions Work' },
-    { src: '/eaglewaste/348s-20.jpg', alt: 'Eagle Waste Solutions Work' },
-    { src: '/eaglewaste/348s-21.jpg', alt: 'Eagle Waste Solutions Work' },
-    { src: '/eaglewaste/348s-22.jpg', alt: 'Eagle Waste Solutions Work' },
-    { src: '/eaglewaste/348s-23.jpg', alt: 'Eagle Waste Solutions Work' },
-    { src: '/eaglewaste/348s-24.jpg', alt: 'Eagle Waste Solutions Work' },
-    { src: '/eaglewaste/348s-25.jpg', alt: 'Eagle Waste Solutions Work' },
-    { src: '/eaglewaste/348s-26.jpg', alt: 'Eagle Waste Solutions Work' },
-    { src: '/eaglewaste/348s-27.jpg', alt: 'Eagle Waste Solutions Work' },
-    { src: '/eaglewaste/appliance-disposal1.jpg', alt: 'Appliance Disposal' },
-    { src: '/eaglewaste/appliance-disposal2.jpg', alt: 'Appliance Disposal' },
-    { src: '/eaglewaste/disposalbin.jpg', alt: 'Disposal Bin' },
-    { src: '/eaglewaste/disposalbin2.jpg', alt: 'Disposal Bin' },
-    { src: '/eaglewaste/furniture.jpg', alt: 'Furniture Removal' },
-    { src: '/eaglewaste/furniture2.jpg', alt: 'Furniture Removal' },
-    { src: '/eaglewaste/furniture3.jpg', alt: 'Furniture Removal' },
-    { src: '/eaglewaste/truck.jpg', alt: 'Eagle Waste Truck' },
-    { src: '/eaglewaste/truck2.jpg', alt: 'Eagle Waste Truck' },
-    { src: '/eaglewaste/truck3.jpg', alt: 'Eagle Waste Truck' },
-    { src: '/eaglewaste/truck4.jpg', alt: 'Eagle Waste Truck' },
+    { src: '/eaglewaste/348s.jpg', alt: 'Junk removal project completed in Los Angeles by Eagle Waste Solutions' },
+    { src: '/eaglewaste/348s-2.jpg', alt: 'Construction debris removal service in San Fernando Valley' },
+    { src: '/eaglewaste/348s-3.jpg', alt: 'Professional waste hauling and disposal in Orange County' },
+    { src: '/eaglewaste/348s-4.jpg', alt: 'Residential cleanout service by Eagle Waste Solutions Los Angeles' },
+    { src: '/eaglewaste/348s-5.jpg', alt: 'Hoarder house cleanout project completed in LA County' },
+    { src: '/eaglewaste/348s-6.jpg', alt: 'Garage cleanout and junk removal in Los Angeles' },
+    { src: '/eaglewaste/348s-7.jpg', alt: 'Commercial waste removal project in San Fernando Valley' },
+    { src: '/eaglewaste/348s-8.jpg', alt: 'Estate cleanout service by Eagle Waste Solutions' },
+    { src: '/eaglewaste/348s-9.jpg', alt: 'Mattress disposal and removal service in Los Angeles' },
+    { src: '/eaglewaste/348s-10.jpg', alt: 'Yard waste and green debris removal in Orange County' },
+    { src: '/eaglewaste/348s-11.jpg', alt: 'Office cleanout project for business in Los Angeles' },
+    { src: '/eaglewaste/348s-12.jpg', alt: 'Same-day junk removal service completed in LA' },
+    { src: '/eaglewaste/348s-13.jpg', alt: 'Construction site debris cleanup in San Fernando Valley' },
+    { src: '/eaglewaste/348s-14.jpg', alt: 'Residential waste removal project in Orange County' },
+    { src: '/eaglewaste/348s-15.jpg', alt: 'Full property cleanout by Eagle Waste Solutions' },
+    { src: '/eaglewaste/348s-16.jpg', alt: 'Eco-friendly waste disposal and recycling in Los Angeles' },
+    { src: '/eaglewaste/348s-17.jpg', alt: 'Large item removal service in San Fernando Valley' },
+    { src: '/eaglewaste/348s-18.jpg', alt: 'Basement cleanout and junk hauling in LA County' },
+    { src: '/eaglewaste/348s-19.jpg', alt: 'Commercial property cleanout in Orange County' },
+    { src: '/eaglewaste/348s-20.jpg', alt: 'Renovation debris removal by Eagle Waste Solutions' },
+    { src: '/eaglewaste/348s-21.jpg', alt: 'Storage unit cleanout service in Los Angeles' },
+    { src: '/eaglewaste/348s-22.jpg', alt: 'Bulk trash removal project in San Fernando Valley' },
+    { src: '/eaglewaste/348s-23.jpg', alt: 'Professional junk hauling service in Orange County' },
+    { src: '/eaglewaste/348s-24.jpg', alt: 'Attic cleanout and debris removal in Los Angeles' },
+    { src: '/eaglewaste/348s-25.jpg', alt: 'Move-out cleanout service by Eagle Waste Solutions' },
+    { src: '/eaglewaste/348s-26.jpg', alt: 'Foreclosure cleanout project in LA County' },
+    { src: '/eaglewaste/348s-27.jpg', alt: 'Complete property cleanout in San Fernando Valley' },
+    { src: '/eaglewaste/appliance-disposal1.jpg', alt: 'Refrigerator and appliance disposal service in Los Angeles' },
+    { src: '/eaglewaste/appliance-disposal2.jpg', alt: 'Washer dryer removal and recycling in Orange County' },
+    { src: '/eaglewaste/disposalbin.jpg', alt: 'Eagle Waste Solutions disposal bin for construction debris' },
+    { src: '/eaglewaste/disposalbin2.jpg', alt: 'Commercial waste disposal container in Los Angeles' },
+    { src: '/eaglewaste/furniture.jpg', alt: 'Couch and furniture removal service in San Fernando Valley' },
+    { src: '/eaglewaste/furniture2.jpg', alt: 'Office furniture pickup and hauling in Los Angeles' },
+    { src: '/eaglewaste/furniture3.jpg', alt: 'Bedroom furniture disposal and donation service' },
+    { src: '/eaglewaste/truck.jpg', alt: 'Eagle Waste Solutions junk removal truck in Los Angeles' },
+    { src: '/eaglewaste/truck2.jpg', alt: 'Professional waste hauling truck serving Orange County' },
+    { src: '/eaglewaste/truck3.jpg', alt: 'Eagle Waste Solutions service vehicle in San Fernando Valley' },
+    { src: '/eaglewaste/truck4.jpg', alt: 'Fully loaded junk removal truck after cleanout project' },
   ];
 
   const openLightbox = (index: number) => {
@@ -68,6 +69,12 @@ const Gallery: React.FC = () => {
   };
 
   return (
+    <>
+      <SEO 
+        title="Project Gallery | Eagle Waste Solutions | Los Angeles Waste Removal"
+        description="Browse our completed waste removal projects in Los Angeles, San Fernando Valley & Orange County. See the quality of our junk removal, cleanout, and debris removal work."
+        canonicalPath="/gallery"
+      />
     <section className="py-24 bg-white px-4 md:px-16">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
@@ -132,6 +139,7 @@ const Gallery: React.FC = () => {
         </div>
       )}
     </section>
+    </>
   );
 };
 

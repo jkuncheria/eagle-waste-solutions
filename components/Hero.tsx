@@ -42,18 +42,18 @@ const Hero: React.FC = () => {
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4">
-          <button 
-            onClick={scrollToProducts}
-            className="bg-yellow-500 hover:bg-yellow-400 text-blue-900 font-bold py-3 px-8 rounded shadow-lg transition transform hover:scale-105"
-          >
-            VIEW OUR SERVICES
-          </button>
           <Link 
             to="/contact"
+            className="bg-yellow-500 hover:bg-yellow-400 text-blue-900 font-bold py-3 px-8 rounded shadow-lg transition transform hover:scale-105 text-center"
+          >
+            GET FREE QUOTE
+          </Link>
+          <a 
+            href="tel:13239260140"
             className="bg-white hover:bg-gray-100 text-blue-900 font-bold py-3 px-8 rounded shadow-lg transition transform hover:scale-105 text-center"
           >
-            GET FREE ESTIMATE
-          </Link>
+            CALL US
+          </a>
         </div>
       </div>
 

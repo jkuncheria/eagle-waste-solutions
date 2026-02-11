@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { CheckCircle, Shield, Recycle, ArrowRight, Phone, Zap, Warehouse } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const GarageCleanouts: React.FC = () => {
   const benefits = [
@@ -39,7 +40,27 @@ const GarageCleanouts: React.FC = () => {
     'Anything else taking up space'
   ];
 
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Garage Cleanout",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Eagle Waste Solutions LLC",
+      "telephone": "+1-323-926-0140"
+    },
+    "areaServed": ["Los Angeles", "San Fernando Valley", "Orange County"],
+    "description": "Professional garage cleanout services. We remove tools, equipment, clutter, and everything else taking up space in your garage."
+  };
+
   return (
+    <>
+      <SEO 
+        title="Garage Cleanout Services | Los Angeles Garage Junk Removal | Eagle Waste Solutions"
+        description="Professional garage cleanout services in Los Angeles, San Fernando Valley & Orange County. Tools, equipment, clutter removal. Fast service. Call (323) 926-0140."
+        canonicalPath="/garage-cleanouts"
+        schema={serviceSchema}
+      />
     <section className="py-24 bg-white px-4 md:px-16">
       <div className="max-w-7xl mx-auto">
         <div className="mb-20">
@@ -99,6 +120,7 @@ const GarageCleanouts: React.FC = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

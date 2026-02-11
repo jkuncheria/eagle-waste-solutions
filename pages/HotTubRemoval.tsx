@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { CheckCircle, Shield, Recycle, ArrowRight, Phone, Zap, Wrench } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const HotTubRemoval: React.FC = () => {
   const benefits = [
@@ -40,6 +41,12 @@ const HotTubRemoval: React.FC = () => {
   ];
 
   return (
+    <>
+      <SEO 
+        title="Hot Tub Removal Services | Los Angeles Spa Disposal | Eagle Waste Solutions"
+        description="Professional hot tub removal in Los Angeles, San Fernando Valley & Orange County. Safe dismantling, hauling, and eco-friendly disposal. Call (323) 926-0140."
+        canonicalPath="/hot-tub-removal"
+      />
     <section className="py-24 bg-white px-4 md:px-16">
       <div className="max-w-7xl mx-auto">
         
@@ -203,6 +210,7 @@ const HotTubRemoval: React.FC = () => {
 
       </div>
     </section>
+    </>
   );
 };
 
